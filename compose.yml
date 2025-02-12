@@ -1,0 +1,23 @@
+# environement dev nginx
+services:
+  nginx:
+    build: ./front
+    ports:
+      - "8000:80"
+    volumes:
+      - ./front/app:/usr/share/nginx/html
+    environment:
+      - MYSQL_PASSWORD=${PASSWORD}
+      - MYSQL_USER=${USER}
+
+      # - USER=fdp
+      # - PASSWORD=fdp
+
+#     volumes:
+#       - type: volume
+#         source: mesdatas
+#       # - type: bind
+#       #   source: ./front/app
+#         target: /usr/share/nginx/html
+# volumes:
+#   mesdatas:
